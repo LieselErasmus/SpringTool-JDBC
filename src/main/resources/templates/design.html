@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Waffle Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+  </head>
+  
+  <body>
+    <h1>Design your waffle!</h1>
+    <img th:src="@{/images/Waffles.jpg}"/>
+        
+    <form method="POST" th:object="${waffle}">
+
+    <span class="validationError"
+          th:if="${#fields.hasErrors('ingredients')}" 
+          th:errors="*{ingredients}">Ingredient Error</span>
+
+    <div class="grid">
+      <div class="ingredient-group" id="wraps">
+      <h3>Design your dough:</h3>
+      <div th:each="ingredient : ${wrap}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+      </div>
+
+	  <div class="ingredient-group" id="proteins">
+      <h3>Pick your dairy:</h3>
+      <div th:each="ingredient : ${protein}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+      </div>
+  
+	  <div class="ingredient-group" id="cheeses">
+      <h3>Choose your topping:</h3>
+      <div th:each="ingredient : ${cheese}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+      </div>
+        
+	  <div class="ingredient-group" id="veggies">
+      <h3>Determine your fruits:</h3>
+      <div th:each="ingredient : ${veggies}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+      </div>
+      
+	  <div class="ingredient-group" id="sauces">
+      <h3>Select your syrup:</h3>
+      <div th:each="ingredient : ${sauce}">
+        <input name="ingredients" type="checkbox" th:value="${ingredient.id}" />
+        <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+      </div>
+      </div>
+      </div>
+      
+      <div>
+
+
+      <h3>Name your waffle creation:</h3>
+      <input type="text" th:field="*{name}"/>
+      <span class="validationError"
+            th:if="${#fields.hasErrors('name')}" 
+            th:errors="*{name}">Name Error</span>
+      <br/>
+      
+      <button>Submit your waffle</button>
+      </div>
+    </form>
+  </body>
+</html>

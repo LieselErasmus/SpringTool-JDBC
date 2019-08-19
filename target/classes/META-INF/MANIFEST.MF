@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: waffle-cloud
+Implementation-Version: 0.0.3-SNAPSHOT
+Built-By: liesele
+Implementation-Vendor-Id: sia
+Build-Jdk: 1.8.0_211
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/waffle-cloud
+Created-By: Maven Integration for Eclipse
+
